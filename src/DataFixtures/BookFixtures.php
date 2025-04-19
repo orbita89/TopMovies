@@ -15,7 +15,6 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
     {
         $android = $this->getReference(BookCategoriesFixer::CATEGORY_ANDROID, BookCategory::class);
 
-
         $devices = $this->getReference(BookCategoriesFixer::CATEGORY_DEVICES, BookCategory::class);
 
         $book = (new Book())

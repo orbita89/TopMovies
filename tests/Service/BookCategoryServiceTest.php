@@ -7,18 +7,22 @@ use App\Model\BookCategoryListItem;
 use App\Model\BookCategoryListResponse;
 use App\Repository\BookCategoryRepository;
 use App\Service\BookCategoryService;
-use PHPUnit\Framework\TestCase;
+use App\Tests\AbstractTestCase;
 
-class BookCategoryServiceTest extends TestCase
+class BookCategoryServiceTest extends AbstractTestCase
 {
 
     public function testGetBookCategories()
     {
+        $category = (new BookCategory())->setTitle('Test')->setSlug('Test');
+
+        $this->setEntityId($category, 7);
+
         $repository = $this->createMock(BookCategoryRepository::class);
 
-        $repository->expects($this->once())->method('findBy')->with([], ['title' => 'ASC'])->willReturn([
-            (new BookCategory())->setId(7)->setTitle('Test')->setSlug('Test')
-        ]);
+        $repository->expects($this->once())
+            ->method('findAllSortingByTitle')
+            ->willReturn([$category]);
 
         $service = new BookCategoryService($repository);
 

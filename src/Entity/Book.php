@@ -43,12 +43,6 @@ class Book
         $this->categories = new ArrayCollection();
     }
 
-    public function setId(?int $id): Book
-    {
-        $this->id = $id;
-        return $this;
-    }
-
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
