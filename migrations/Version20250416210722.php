@@ -21,7 +21,7 @@ final class Version20250416210722 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql(<<<'SQL'
-            DROP SEQUENCE лbook_id_seq CASCADE
+            DROP SEQUENCE book_id_seq CASCADE
         SQL);
         $this->addSql(<<<'SQL'
             CREATE TABLE book_category (id SERIAL NOT NULL, title VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, PRIMARY KEY(id))
