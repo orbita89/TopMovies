@@ -2,7 +2,7 @@
 
 namespace App\Service\ExceptionHandler;
 
-use http\Exception\InvalidArgumentException;
+use InvalidArgumentException;
 
 class ExceptionMappingResolver
 {
