@@ -23,8 +23,14 @@ class ReviewService
 
         $total = count($paginator);
 
+        $rating = 0;
+
+        if ($total > 0) {
+            $rating = $this->reviewRepository->getBookTotalRatingSum($id) / $total;
+        }
+
         return new ReviewPage()
-            ->setRating($this->reviewRepository->getBookTotalRatingSum($id))
+            ->setRating($rating)
             ->setTotal($total)
             ->setPage($page)
             ->setPerPage(self::LIMIT)

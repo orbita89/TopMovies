@@ -62,6 +62,7 @@ class Book
     {
         $this->categories = new ArrayCollection();
         $this->reviews = new ArrayCollection();
+        $this->bookFormats = new ArrayCollection();
     }
 
     public function getBookFormats(): Collection
