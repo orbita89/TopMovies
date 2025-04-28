@@ -43,6 +43,7 @@ class SubscriberController extends AbstractController
                 ]
             )
         ),
+        tags: ['Подписка'],
         responses: [
             new OA\Response(
                 response: 200,

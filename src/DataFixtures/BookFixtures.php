@@ -21,8 +21,10 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
             ->setTitle('Java')
             ->setSlug('java')
             ->setMeap(false)
+            ->setIsbn('1234567890')
+            ->setDescription('Описание')
             ->setAuthors(['Иван Иванов'])
-            ->setCreatedAt(new \DateTime('2023-01-01'))
+            ->setCreatedAt(new \DateTimeImmutable('2023-01-01'))
             ->setCategories(new ArrayCollection([$android, $devices]))
             ->setImage(
                 'https://images.unsplash.com/photo-1518791841217-8f162f1e6016?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'

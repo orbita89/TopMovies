@@ -71,4 +71,53 @@ class BookController extends AbstractController
     {
         return $this->json($this->bookService->getBookByCategory($id));
     }
+
+
+    #[OA\Get(
+        path: '/api/v1/books/{id}',
+        summary: 'Список книг по категории',
+        tags: ['Книги'],
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'Список книг по категории успешно получен',
+                content: new OA\JsonContent(
+                    properties: [
+                        new OA\Property(
+                            property: 'items',
+                            type: 'array',
+                            items: new OA\Items(
+                                properties: [
+                                    new OA\Property(property: 'id', type: 'integer', example: 1),
+                                    new OA\Property(property: 'title', type: 'string', example: 'Symfony in Action'),
+                                    new OA\Property(property: 'slug', type: 'string', example: 'symfony-in-action'),
+                                    new OA\Property(property: 'authors', type: 'array', items: new OA\Items(type: 'string')),
+                                    new OA\Property(property: 'image', type: 'string', example: '/images/symfony.png'),
+                                    new OA\Property(property: 'meap', type: 'boolean', example: false),
+                                    new OA\Property(property: 'publicationDate', type: 'integer', example: 1713768412)
+                                ],
+                                type: 'object'
+                            )
+                        )
+                    ],
+                    type: 'object'
+                )
+            ),
+            new OA\Response(
+                response: 404,
+                description: 'Книга не найдена',
+                content: new OA\JsonContent(
+                    properties: [
+                        new OA\Property(property: 'message', type: 'string', example: 'Категория не найдена')
+                    ],
+                    type: 'object'
+                )
+            )
+        ]
+    )]
+    #[Route(path: '/api/v1/books/{id}', name: 'api_book_by_id', methods: ['GET'])]
+    public function bookById(int $id): Response
+    {
+        return $this->json($this->bookService->getBookById($id));
+    }
 }

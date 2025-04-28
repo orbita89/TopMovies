@@ -18,7 +18,6 @@ class Book
     #[ORM\Column(length: 255)]
     private string $title;
 
-
     #[ORM\Column(type: 'string', length: 255, unique: true)]
     private string $slug;
 
@@ -28,20 +27,54 @@ class Book
     #[ORM\Column(type: 'simple_array')]
     private array $authors;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'string', length: 13, unique: true)]
+    private ?string $isbn = null;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $description;
+
+    #[ORM\Column(type: 'datetime_immutable')]
     private \DateTimeInterface $createdAt;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $meap;
 
+    /**
+     * @var Collection<BookCategory>
+     */
     #[ORM\ManyToMany(targetEntity: BookCategory::class)]
-    #[ORM\JoinTable(name: 'books_categories')]
+    #[ORM\JoinTable(name: 'book_to_book_category')]
     private Collection $categories;
+
+    /**
+     * @var Collection<BookToBookFormat>
+     */
+    #[ORM\OneToMany(targetEntity: BookToBookFormat::class, mappedBy: 'book')]
+    private Collection $bookFormats;
+
+    /**
+     * @var Collection<Review>
+     */
+    #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'book')]
+    private Collection $reviews;
 
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
     }
+
+    public function getBookFormats(): Collection
+    {
+        return $this->bookFormats;
+    }
+
+    public function setBookFormats(Collection $bookFormats): Book
+    {
+        $this->bookFormats = $bookFormats;
+        return $this;
+    }
+
 
     public function getCreatedAt(): \DateTimeInterface
     {
@@ -124,6 +157,39 @@ class Book
     public function setCategories(Collection $categories): Book
     {
         $this->categories = $categories;
+        return $this;
+    }
+
+    public function getIsbn(): ?string
+    {
+        return $this->isbn;
+    }
+
+    public function setIsbn(?string $isbn): Book
+    {
+        $this->isbn = $isbn;
+        return $this;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): Book
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): Book
+    {
+        $this->reviews = $reviews;
         return $this;
     }
 }

@@ -8,13 +8,13 @@ class BookCategoryListResponse
 {
 
     /**
-     * @param  BookCategoryListItem[]  $items
+     * @param  BookCategory[]  $items
      */
     private array $items;
 
 
     /**
-     * @param  BookCategoryListItem[]  $items
+     * @param  BookCategory[]  $items
      */
     public function __construct(array $items)
     {
