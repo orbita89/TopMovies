@@ -74,7 +74,7 @@ class BookController extends AbstractController
 
 
     #[OA\Get(
-        path: '/api/v1/books/{id}',
+        path: '/api/v1/book/{id}',
         summary: 'Список книг по категории',
         tags: ['Книги'],
         responses: [
@@ -115,7 +115,7 @@ class BookController extends AbstractController
             )
         ]
     )]
-    #[Route(path: '/api/v1/books/{id}', name: 'api_book_by_id', methods: ['GET'])]
+    #[Route(path: '/api/v1/book/{id}', name: 'api_book_by_id', methods: ['GET'])]
     public function bookById(int $id): Response
     {
         return $this->json($this->bookService->getBookById($id));

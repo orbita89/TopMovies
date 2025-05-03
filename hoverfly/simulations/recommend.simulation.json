@@ -1,8 +1,14 @@
 {
   "data": {
-    "paris": [
+    "pairs": [
       {
         "request": {
+          "method": [
+            {
+              "matcher": "exact",
+              "value": "GET"
+            }
+          ],
           "path": [
             {
               "matcher": "glob",
@@ -31,6 +37,12 @@
       },
       {
         "request": {
+          "method": [
+            {
+              "matcher": "exact",
+              "value": "GET"
+            }
+          ],
           "path": [
             {
               "matcher": "glob",
@@ -48,9 +60,9 @@
           "body": "{\n \"error\":\"access denied\"\n}"
         }
       }
-    ],
-    "meta": {
-      "schemaVersion": "5.1"
-    }
+    ]
+  },
+  "meta": {
+    "schemaVersion": "5.1"
   }
 }

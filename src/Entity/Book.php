@@ -33,8 +33,8 @@ class Book
     #[ORM\Column(type: 'string', length: 255)]
     private string $description;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private \DateTimeInterface $createdAt;
+    #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
+    private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $meap;
@@ -76,13 +76,12 @@ class Book
         return $this;
     }
 
-
-    public function getCreatedAt(): \DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): static
+    public function setCreatedAt(?\DateTimeInterface $createdAt): Book
     {
         $this->createdAt = $createdAt;
         return $this;

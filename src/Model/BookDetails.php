@@ -15,6 +15,10 @@ class BookDetails
     private float $rating;
     private string $rewiew;
     /**
+     * @var RecommendedBook[]
+     */
+    private array $recommend;
+    /**
      * @var  BookCategory[]
      */
     private array $categories;
@@ -142,6 +146,17 @@ class BookDetails
     public function setBookFormats(array $bookFormats): BookDetails
     {
         $this->bookFormats = $bookFormats;
+        return $this;
+    }
+
+    public function getRecommend(): array
+    {
+        return $this->recommend;
+    }
+
+    public function setRecommend(array $recommend): BookDetails
+    {
+        $this->recommend = $recommend;
         return $this;
     }
 }

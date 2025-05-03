@@ -42,4 +42,16 @@ class BookRepository extends ServiceEntityRepository
         }
         return $book;
     }
+
+    /**
+     * @return Book[]
+     */
+    public function findBooksByIds(array $ids): array
+    {
+        return $this->createQueryBuilder('b')
+            ->where('b.id IN (:ids)')
+            ->setParameter('ids', $ids)
+            ->getQuery()
+            ->getResult();
+    }
 }
