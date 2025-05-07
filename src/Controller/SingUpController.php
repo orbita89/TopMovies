@@ -6,15 +6,13 @@ namespace App\Controller;
 
 use App\Model\SignUpRequest;
 use App\Service\SingUpService;
-use OpenApi\Attributes\RequestBody;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use OpenApi\Attributes as OA;
 use App\Attribute\MyRequestBody;
 
-
-
+#[OA\Tag(name: 'Auth')]
 class SingUpController extends AbstractController
 {
     public function __construct(private SingUpService $singUpService)
@@ -26,9 +24,6 @@ class SingUpController extends AbstractController
         summary: 'Регистрация пользователя',
         requestBody: new OA\RequestBody(
             required: true,
-            content: new OA\JsonContent(
-                ref: '#/components/schemas/SignUpRequest'
-            )
         ),
         responses: [
             new OA\Response(response: 200, description: 'Успешная регистрация'),
@@ -39,6 +34,6 @@ class SingUpController extends AbstractController
     #[Route('/api/v1/auth/signUp', name: 'app_sing_up', methods: ['POST'])]
     public function singUp(#[MyRequestBody] SignUpRequest $signUpRequest): Response
     {
-        return $this->json($this->singUpService->singUp($signUpRequest));
+        return $this->singUpService->singUp($signUpRequest);
     }
 }

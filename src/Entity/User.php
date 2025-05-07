@@ -28,6 +28,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255)]
     private string $password;
 
+    #[ORM\Column(type: 'simple_array')]
+    private array $roles = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,7 +88,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getRoles(): array
     {
-        return [];
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): User
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 
     public function eraseCredentials(): void
@@ -94,6 +104,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getUserIdentifier(): string
     {
-        return (string) $this->id;
+        return (string)$this->email;
     }
 }

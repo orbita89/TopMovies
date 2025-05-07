@@ -188,6 +188,7 @@
       <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
@@ -250,6 +251,7 @@
     <PhpStan_settings>
       <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
       <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66" timeout="60000" />
+      <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
       <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
     </PhpStan_settings>
   </component>
