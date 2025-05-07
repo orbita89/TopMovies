@@ -7,6 +7,7 @@ use App\Entity\BookCategory;
 use App\Entity\BookToBookFormat;
 use App\Entity\BookFormat;
 use App\Entity\Review;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -19,6 +20,8 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
     {
         $faker = Factory::create();
 
+        $user = $this->getReference(UserFixtures::REFERENCE_USER, User::class);
+
         $android = $this->getReference(BookCategoriesFixer::CATEGORY_ANDROID, BookCategory::class);
         $devices = $this->getReference(BookCategoriesFixer::CATEGORY_DEVICES, BookCategory::class);
 
@@ -30,6 +33,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
                 ->setTitle($faker->sentence(3))
                 ->setSlug($faker->slug)
                 ->setMeap($faker->boolean)
+                ->setUser($user)
                 ->setIsbn($faker->numberBetween(1, 9999999999))
                 ->setCreatedAt(new \DateTimeImmutable('2023-01-01'))
                 ->setDescription($faker->paragraph)
@@ -72,6 +76,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
         return [
             BookCategoriesFixer::class,
             BookFormatFixtures::class,
+            UserFixtures::class,
         ];
     }
 }

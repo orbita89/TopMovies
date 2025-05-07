@@ -10,6 +10,7 @@ parameters:
         App\Exception\InvalidBookCategoryException: { code: 400, hidden: false }
         App\Exception\SubscriberAlreadyException: { code: 409, hidden: false }
         App\Exception\UserAlreadyException: { code: 409, hidden: false }
+        App\Exception\SlugAlreadyException: { code: 409, hidden: false }
         App\Exception\RequestBodyConvertException: { code: 400, hidden: false }
         App\Exception\BookNotFoundException: { code: 404, hidden: false }
 
