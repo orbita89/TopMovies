@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Author\Author\Author;
+namespace App\Model\Author;
 
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -19,5 +19,4 @@ class CreateBookRequest
         $this->title = $title;
         return $this;
     }
-
 }

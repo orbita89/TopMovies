@@ -14,7 +14,6 @@ use Throwable;
 
 class RequestBodyArgumentResolver implements ValueResolverInterface
 {
-
     public function __construct(private SerializerInterface $serializer, private ValidatorInterface $validatorInterface)
     {
     }

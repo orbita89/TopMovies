@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    uploadDir: '%kernel.project_dir%/public/upload'
     exception:
         Symfony\Component\HttpKernel\Exception\NotFoundHttpException: { code: 404 }
         App\Exception\BookCategoryNotFoundException: { code: 404, hidden: false }
@@ -13,6 +14,7 @@ parameters:
         App\Exception\SlugAlreadyException: { code: 409, hidden: false }
         App\Exception\RequestBodyConvertException: { code: 400, hidden: false }
         App\Exception\BookNotFoundException: { code: 404, hidden: false }
+        App\Exception\UploadFileInvalidException.php: { code: 404, hidden: false }
 
 services:
     # default configuration for services in *this* file
@@ -53,5 +55,8 @@ services:
         tags:
             -   name: 'kernel.event_listener'
                 event: 'lexik_jwt_authentication.on_jwt_created'
+
+    App\Service\UploadService:
+        arguments: [ '@filesystem','%uploadDir%' ]
 
 

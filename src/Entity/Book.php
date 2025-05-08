@@ -37,6 +37,9 @@ class Book
     #[ORM\Column(type: 'datetime_immutable', nullable: true, options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeInterface $createdAt = null;
 
+    #[ORM\Column(type: 'datetime_immutable', nullable: true, options: ['default' => 'CURRENT_TIMESTAMP'])]
+    private ?\DateTimeInterface $publication = null;
+
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $meap;
 
@@ -206,6 +209,17 @@ class Book
     public function setUser(UserInterface $user): Book
     {
         $this->user = $user;
+        return $this;
+    }
+
+    public function getPublication(): ?\DateTimeInterface
+    {
+        return $this->publication;
+    }
+
+    public function setPublication(?\DateTimeInterface $publication): Book
+    {
+        $this->publication = $publication;
         return $this;
     }
 }
