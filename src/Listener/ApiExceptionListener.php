@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\Serializer\SerializerInterface;
+use Throwable;
 
 class ApiExceptionListener
 {
@@ -26,9 +27,9 @@ class ApiExceptionListener
     public function __invoke(ExceptionEvent $event): void
     {
         $throwable = $event->getThrowable();
-        //        if ($this->isSecondaryException($throwable)) {
-        //            return;
-        //        }
+        if ($this->isSecondaryException($throwable)) {
+            return;
+        }
         $mapping = $this->exceptionMappingResolver->resolve(get_class($throwable));
 
         if (null === $mapping) {
@@ -52,7 +53,7 @@ class ApiExceptionListener
         $event->setResponse(new JsonResponse($data, $mapping->getCode(), [], true));
     }
 
-    private function isSecondaryException(\Throwable $throwable): bool
+    private function isSecondaryException(Throwable $throwable): bool
     {
         return $throwable instanceof AuthenticationException || $throwable instanceof AccessDeniedException;
     }

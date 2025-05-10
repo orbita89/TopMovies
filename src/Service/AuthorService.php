@@ -6,6 +6,7 @@ use App\Entity\Book;
 use App\Exception\SlugAlreadyException;
 use App\Model\Author\BookListItem;
 use App\Model\Author\BookListResponse;
+use App\Model\Author\CreateBookRequest;
 use App\Model\Author\PublishBookRequest;
 use App\Model\Author\UploadCoverResponse;
 use App\Repository\BookRepository;

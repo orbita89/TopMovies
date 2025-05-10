@@ -128,7 +128,6 @@ class AuthorController extends AbstractController
     public function createBook(#[MyRequestBody] CreateBookRequest $request): Response
     {
         $this->authorService->createBook($request);
-
         return $this->json(null);
     }
 

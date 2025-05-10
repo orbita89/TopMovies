@@ -13,9 +13,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Random\RandomException;
 
 class BookFixtures extends Fixture implements DependentFixtureInterface
 {
+    /**
+     * @throws RandomException
+     */
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
@@ -34,7 +38,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
                 ->setSlug($faker->slug)
                 ->setMeap($faker->boolean)
                 ->setUser($user)
-                ->setIsbn($faker->numberBetween(1, 9999999999))
+                ->setIsbn((string)$faker->numberBetween(1, 9999999999))
                 ->setCreatedAt(new \DateTimeImmutable('2023-01-01'))
                 ->setDescription($faker->paragraph)
                 ->setAuthors([$faker->name])

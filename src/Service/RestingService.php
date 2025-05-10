@@ -13,4 +13,15 @@ class RestingService
     public function calcReviewRatingForBook()
     {
     }
+
+    public function getReviewRepository(): ReviewRepository
+    {
+        return $this->reviewRepository;
+    }
+
+    public function setReviewRepository(ReviewRepository $reviewRepository): RestingService
+    {
+        $this->reviewRepository = $reviewRepository;
+        return $this;
+    }
 }

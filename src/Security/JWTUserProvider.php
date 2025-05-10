@@ -26,6 +26,7 @@ class JWTUserProvider implements PayloadAwareUserProviderInterface
             throw new \InvalidArgumentException('Unsupported user class.');
         }
 
+        /** @phpstan-ignore-next-line */
         return $this->userRepository->find($user->getId());
     }
 
@@ -48,7 +49,7 @@ class JWTUserProvider implements PayloadAwareUserProviderInterface
 
             throw $e;
         }
-
+        /** @phpstan-ignore-next-line */
         return $user;
     }
 }
