@@ -14,7 +14,7 @@ class BookCategoryServiceTest extends AbstractTestCase
 
     public function testGetBookCategories()
     {
-        $category = new BookCategory()->setTitle('Test')->setSlug('Test');
+        $category = (new BookCategory())->setTitle('Test')->setSlug('Test');
 
         $this->setEntityId($category, 7);
 

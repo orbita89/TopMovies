@@ -2,17 +2,13 @@
 
 namespace App\ArgumentResolver;
 
-use App\Attribute\MyRequestBody;
 use App\Attribute\MyRequestFile;
-use App\Exception\RequestBodyConvertException;
 use App\Exception\ValidationException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Throwable;
 
 class RequestFileArgumentResolver implements ValueResolverInterface
 {
