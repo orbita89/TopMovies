@@ -3,7 +3,6 @@
 namespace App\Tests\Service;
 
 use App\Entity\Book;
-use App\Entity\BookCategory;
 use App\Exception\BookCategoryNotFoundException;
 use App\Model\BookListItem;
 use App\Model\BookListResponse;
@@ -23,13 +22,11 @@ class BookServiceTest extends AbstractTestCase
             ->with(130)
             ->willReturn([$this->getBookEntity()]);
 
-
         $category = $this->createMock(BookCategoryRepository::class);
         $category->expects($this->once())
             ->method('existById')
             ->with(130)
             ->willReturn(true);
-
 
         $service = new BookService($bookRepository, $category);
 
@@ -46,7 +43,6 @@ class BookServiceTest extends AbstractTestCase
             ->method('existById')
             ->with(999)
             ->willReturn(false);
-
 
         $this->expectException(BookCategoryNotFoundException::class);
 

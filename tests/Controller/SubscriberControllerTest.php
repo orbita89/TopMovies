@@ -2,7 +2,6 @@
 
 namespace App\Tests\Controller;
 
-use App\Controller\SubscriberController;
 use App\Exception\SubscriberAlreadyException;
 use App\Model\SubscriberRequest;
 use App\Service\SubscriberServes;
@@ -11,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SubscriberControllerTest extends WebTestCase
 {
-
     public function testSubscriberAction(): void
     {
         $client = static::createClient();
@@ -32,13 +30,12 @@ class SubscriberControllerTest extends WebTestCase
             ['CONTENT_TYPE' => 'application/json'],
             json_encode([
                 'email' => 'test@example.com',
-                'agreed' => true
+                'agreed' => true,
             ])
         );
 
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
     }
-
 
     public function testSubscriberAlreadyExists(): void
     {
@@ -59,7 +56,7 @@ class SubscriberControllerTest extends WebTestCase
             ['CONTENT_TYPE' => 'application/json'],
             json_encode([
                 'email' => 'existing@example.com',
-                'agreed' => true
+                'agreed' => true,
             ])
         );
 
@@ -79,7 +76,7 @@ class SubscriberControllerTest extends WebTestCase
             ['CONTENT_TYPE' => 'application/json'],
             json_encode([
                 'email' => 'not-an-email',
-                'agreed' => true
+                'agreed' => true,
             ])
         );
 

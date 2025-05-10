@@ -16,6 +16,7 @@ class UploadCoverResponse
     public function setUrl(string $url): UploadCoverResponse
     {
         $this->url = $url;
+
         return $this;
     }
 }

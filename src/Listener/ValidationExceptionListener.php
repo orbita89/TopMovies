@@ -11,7 +11,6 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class ValidationExceptionListener
 {
-
     public function __construct(private SerializerInterface $serializer)
     {
     }
@@ -29,7 +28,6 @@ class ValidationExceptionListener
             'json'
         );
 
-        $event->setResponse(new JsonResponse($data, RESPONSE::HTTP_BAD_REQUEST, [], true));
+        $event->setResponse(new JsonResponse($data, Response::HTTP_BAD_REQUEST, [], true));
     }
-
 }

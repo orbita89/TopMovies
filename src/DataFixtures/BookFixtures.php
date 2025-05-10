@@ -4,14 +4,14 @@ namespace App\DataFixtures;
 
 use App\Entity\Book;
 use App\Entity\BookCategory;
-use App\Entity\BookToBookFormat;
 use App\Entity\BookFormat;
+use App\Entity\BookToBookFormat;
 use App\Entity\Review;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Doctrine\Common\Collections\ArrayCollection;
 use Faker\Factory;
 
 class BookFixtures extends Fixture implements DependentFixtureInterface
@@ -28,7 +28,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
         $ebook = $this->getReference(BookFormatFixtures::FORMAT_EBOOK, BookFormat::class);
         $print = $this->getReference(BookFormatFixtures::FORMAT_PRINT, BookFormat::class);
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 10; ++$i) {
             $book = (new Book())
                 ->setTitle($faker->sentence(3))
                 ->setSlug($faker->slug)
@@ -43,8 +43,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist($book);
 
-
-            for ($j = 0; $j < random_int(2, 5); $j++) {
+            for ($j = 0; $j < random_int(2, 5); ++$j) {
                 $review = (new Review())
                     ->setBook($book)
                     ->setAuthor($faker->name())
@@ -81,4 +80,4 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
     }
 }
 
-//Chatgpt: Создай мне fixtures по этим entity добавь каждое поле без исключений используй faker
+// Chatgpt: Создай мне fixtures по этим entity добавь каждое поле без исключений используй faker

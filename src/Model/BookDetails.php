@@ -4,7 +4,6 @@ namespace App\Model;
 
 class BookDetails
 {
-
     private int $id;
     private string $title;
     private string $slug;
@@ -19,7 +18,7 @@ class BookDetails
      */
     private array $recommend;
     /**
-     * @var  BookCategory[]
+     * @var BookCategory[]
      */
     private array $categories;
 
@@ -36,6 +35,7 @@ class BookDetails
     public function setId(int $id): BookDetails
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -47,6 +47,7 @@ class BookDetails
     public function setTitle(string $title): BookDetails
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -58,6 +59,7 @@ class BookDetails
     public function setSlug(string $slug): BookDetails
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -69,6 +71,7 @@ class BookDetails
     public function setImage(?string $image): BookDetails
     {
         $this->image = $image;
+
         return $this;
     }
 
@@ -80,6 +83,7 @@ class BookDetails
     public function setAuthors(array $authors): BookDetails
     {
         $this->authors = $authors;
+
         return $this;
     }
 
@@ -91,6 +95,7 @@ class BookDetails
     public function setMeap(bool $meap): BookDetails
     {
         $this->meap = $meap;
+
         return $this;
     }
 
@@ -102,6 +107,7 @@ class BookDetails
     public function setPublicationDate(int $publicationDate): BookDetails
     {
         $this->publicationDate = $publicationDate;
+
         return $this;
     }
 
@@ -113,6 +119,7 @@ class BookDetails
     public function setRating(float $rating): BookDetails
     {
         $this->rating = $rating;
+
         return $this;
     }
 
@@ -124,6 +131,7 @@ class BookDetails
     public function setRewiew(string $rewiew): BookDetails
     {
         $this->rewiew = $rewiew;
+
         return $this;
     }
 
@@ -135,6 +143,7 @@ class BookDetails
     public function setCategories(array $categories): BookDetails
     {
         $this->categories = $categories;
+
         return $this;
     }
 
@@ -146,6 +155,7 @@ class BookDetails
     public function setBookFormats(array $bookFormats): BookDetails
     {
         $this->bookFormats = $bookFormats;
+
         return $this;
     }
 
@@ -157,6 +167,7 @@ class BookDetails
     public function setRecommend(array $recommend): BookDetails
     {
         $this->recommend = $recommend;
+
         return $this;
     }
 }

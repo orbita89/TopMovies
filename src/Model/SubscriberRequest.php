@@ -8,7 +8,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class SubscriberRequest
 {
-
     #[Email]
     #[NotBlank]
     private string $email;
@@ -25,6 +24,7 @@ class SubscriberRequest
     public function setEmail(string $email): SubscriberRequest
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -36,6 +36,7 @@ class SubscriberRequest
     public function setAgreed(bool $agreed): SubscriberRequest
     {
         $this->agreed = $agreed;
+
         return $this;
     }
 }

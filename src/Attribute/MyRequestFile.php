@@ -2,10 +2,9 @@
 
 namespace App\Attribute;
 
-use Attribute;
 use Symfony\Component\Validator\Constraint;
 
-#[Attribute(Attribute::TARGET_PARAMETER)]
+#[\Attribute(\Attribute::TARGET_PARAMETER)]
 class MyRequestFile
 {
     public function __construct(private string $field, private array $constraints = [])
@@ -20,6 +19,7 @@ class MyRequestFile
     public function setField(string $field): MyRequestFile
     {
         $this->field = $field;
+
         return $this;
     }
 
@@ -34,6 +34,7 @@ class MyRequestFile
     public function setConstraints(array $constraints): MyRequestFile
     {
         $this->constraints = $constraints;
+
         return $this;
     }
 }

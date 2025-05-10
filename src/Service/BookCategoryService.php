@@ -13,13 +13,12 @@ class BookCategoryService
     {
     }
 
-
     public function getBookCategories(): BookCategoryListResponse
     {
         $categories = $this->bookCategoryRepository->findAllSortingByTitle();
 
         $items = array_map(
-            fn(BookCategory $bookCategory) => new BookCategoryModel(
+            fn (BookCategory $bookCategory) => new BookCategoryModel(
                 $bookCategory->getId(),
                 $bookCategory->getTitle(),
                 $bookCategory->getSlug()
@@ -29,5 +28,4 @@ class BookCategoryService
 
         return new BookCategoryListResponse($items);
     }
-
 }

@@ -18,7 +18,6 @@ use App\Repository\ReviewRepository;
 use App\Service\Recommendation\Model\RecommendationItem;
 use App\Service\Recommendation\RecommendationService;
 use Psr\Log\LoggerInterface;
-use Throwable;
 
 class BookService
 {
@@ -59,7 +58,7 @@ class BookService
 
     public function getBookByCategoryWithRecommendation(int $bookId): array
     {
-        $ids = array_map(fn(RecommendationItem $item) => $item->getId(),
+        $ids = array_map(fn (RecommendationItem $item) => $item->getId(),
             $this->recommendationService->getRecommendations($bookId)->getRecommendations());
 
         return array_map([BookMapper::class, 'mapRecommendedBook'],
@@ -76,7 +75,7 @@ class BookService
         $recommendations = [];
 
         $formats = $book->getBookFormats()
-            ->map(fn(BookToBookFormat $formatJoin) => (new BookFormat())
+            ->map(fn (BookToBookFormat $formatJoin) => (new BookFormat())
                 ->setId($formatJoin->getBookFormat()->getId())
                 ->setTitle($formatJoin->getBookFormat()->getTitle())
                 ->setComment($formatJoin->getBookFormat()->getComment())
@@ -86,7 +85,7 @@ class BookService
             );
 
         $categories = $book->getCategories()
-            ->map(fn(BookCategory $category) => new BookCategoryModel(
+            ->map(fn (BookCategory $category) => new BookCategoryModel(
                 id: $category->getId(),
                 title: $category->getTitle(),
                 slug: $category->getSlug()
@@ -94,7 +93,7 @@ class BookService
 
         try {
             $recommendations = $this->getBookByCategoryWithRecommendation($id);
-        } catch (Throwable $exception) {
+        } catch (\Throwable $exception) {
             $this->logger->error('Error while getting recommendations', [
                 'bookId' => $id,
                 'exception' => $exception,
@@ -110,7 +109,7 @@ class BookService
             ->setImage($book->getImage())
             ->setMeap($book->isMeap())
             ->setPublicationDate($book->getCreatedAt()->getTimestamp())
-            ->setRating($reviews == 0 ? 0 : $ratingsSum / $reviews)
+            ->setRating(0 == $reviews ? 0 : $ratingsSum / $reviews)
             ->setRewiew($reviews)
             ->setBookFormats($formats->toArray())
             ->setCategories($categories->toArray());

@@ -3,13 +3,12 @@
 namespace App\Service;
 
 use App\Entity\Review;
-use App\Model\Review AS ReviewModel;
+use App\Model\Review as ReviewModel;
 use App\Model\ReviewPage;
 use App\Repository\ReviewRepository;
 
 class ReviewService
 {
-
     private const LIMIT = 5;
 
     public function __construct(private ReviewRepository $reviewRepository)
@@ -34,10 +33,9 @@ class ReviewService
             ->setTotal($total)
             ->setPage($page)
             ->setPerPage(self::LIMIT)
-            ->setPages((int)ceil($total / self::LIMIT))
+            ->setPages((int) ceil($total / self::LIMIT))
             ->setItems(array_map([$this, 'map'], $paginator->getIterator()->getArrayCopy()));
     }
-
 
     public function map(Review $review): ReviewModel
     {

@@ -3,7 +3,7 @@
 namespace App\Tests\Service;
 
 use App\Entity\BookCategory;
-use App\Model\BookCategory AS BookCategoryModel;
+use App\Model\BookCategory as BookCategoryModel;
 use App\Model\BookCategoryListResponse;
 use App\Repository\BookCategoryRepository;
 use App\Service\BookCategoryService;
@@ -11,7 +11,6 @@ use App\Tests\AbstractTestCase;
 
 class BookCategoryServiceTest extends AbstractTestCase
 {
-
     public function testGetBookCategories()
     {
         $category = (new BookCategory())->setTitle('Test')->setSlug('Test');

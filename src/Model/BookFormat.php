@@ -19,6 +19,7 @@ class BookFormat
     public function setId(int $id): BookFormat
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -30,6 +31,7 @@ class BookFormat
     public function setTitle(string $title): BookFormat
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -41,6 +43,7 @@ class BookFormat
     public function setDescription(?string $description): BookFormat
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -52,6 +55,7 @@ class BookFormat
     public function setComment(?string $comment): BookFormat
     {
         $this->comment = $comment;
+
         return $this;
     }
 
@@ -63,6 +67,7 @@ class BookFormat
     public function setPrice(float $price): BookFormat
     {
         $this->price = $price;
+
         return $this;
     }
 
@@ -74,6 +79,7 @@ class BookFormat
     public function setDiscountPercent(?int $discountPercent): BookFormat
     {
         $this->discountPercent = $discountPercent;
+
         return $this;
     }
 }

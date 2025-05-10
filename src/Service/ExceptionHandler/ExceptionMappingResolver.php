@@ -2,13 +2,10 @@
 
 namespace App\Service\ExceptionHandler;
 
-use InvalidArgumentException;
-
 class ExceptionMappingResolver
 {
-
     /**
-     * @var  ExceptionMapping
+     * @var ExceptionMapping
      */
     private array $mappings;
 
@@ -16,9 +13,7 @@ class ExceptionMappingResolver
     {
         foreach ($mappings as $class => $mapping) {
             if (empty($mapping['code'])) {
-                throw new InvalidArgumentException(
-                    'Exception mapping must have a code'
-                );
+                throw new \InvalidArgumentException('Exception mapping must have a code');
             }
 
             $this->getMapping(

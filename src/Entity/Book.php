@@ -81,6 +81,7 @@ class Book
     public function setBookFormats(Collection $bookFormats): Book
     {
         $this->bookFormats = $bookFormats;
+
         return $this;
     }
 
@@ -92,6 +93,7 @@ class Book
     public function setCreatedAt(?\DateTimeInterface $createdAt): Book
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 
@@ -103,6 +105,7 @@ class Book
     public function setImage(?string $image): static
     {
         $this->image = $image;
+
         return $this;
     }
 
@@ -110,7 +113,6 @@ class Book
     {
         return $this->id;
     }
-
 
     public function getTitle(): string
     {
@@ -132,6 +134,7 @@ class Book
     public function setSlug(string $slug): Book
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -143,6 +146,7 @@ class Book
     public function setAuthors(?array $authors): Book
     {
         $this->authors = $authors;
+
         return $this;
     }
 
@@ -154,6 +158,7 @@ class Book
     public function setMeap(bool $meap): Book
     {
         $this->meap = $meap;
+
         return $this;
     }
 
@@ -165,6 +170,7 @@ class Book
     public function setCategories(Collection $categories): Book
     {
         $this->categories = $categories;
+
         return $this;
     }
 
@@ -176,6 +182,7 @@ class Book
     public function setIsbn(?string $isbn): Book
     {
         $this->isbn = $isbn;
+
         return $this;
     }
 
@@ -187,6 +194,7 @@ class Book
     public function setDescription(?string $description): Book
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -198,6 +206,7 @@ class Book
     public function setReviews(Collection $reviews): Book
     {
         $this->reviews = $reviews;
+
         return $this;
     }
 
@@ -209,6 +218,7 @@ class Book
     public function setUser(UserInterface $user): Book
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -220,6 +230,7 @@ class Book
     public function setPublication(?\DateTimeInterface $publication): Book
     {
         $this->publication = $publication;
+
         return $this;
     }
 }

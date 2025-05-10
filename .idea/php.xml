@@ -2,20 +2,21 @@
 <project version="4">
   <component name="LaravelPint">
     <laravel_pint_settings>
-      <laravel_pint_by_interpreter asDefaultInterpreter="true" interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66">
+      <laravel_pint_by_interpreter asDefaultInterpreter="true" interpreter_id="f38a02f4-ffd4-4320-937e-fa3c0d303341">
         <option name="timeout" value="30000" />
       </laravel_pint_by_interpreter>
     </laravel_pint_settings>
   </component>
   <component name="MessDetector">
     <phpmd_settings>
-      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66" timeout="30000" />
+      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="f38a02f4-ffd4-4320-937e-fa3c0d303341" timeout="30000" />
     </phpmd_settings>
   </component>
   <component name="MessDetectorOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
   <component name="PHPCSFixerOptionsConfiguration">
+    <option name="allowRiskyRules" value="true" />
     <option name="codingStandard" value="Custom" />
     <option name="rulesetPath" value="$PROJECT_DIR$/.php-cs-fixer.dist.php" />
     <option name="transferred" value="true" />
@@ -26,13 +27,14 @@
   </component>
   <component name="PhpCSFixer">
     <phpcsfixer_settings>
-      <PhpCSFixerConfiguration tool_path="$PROJECT_DIR$/vendor/bin/php-cs-fixer" />
-      <phpcs_fixer_by_interpreter asDefaultInterpreter="true" interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66" standards="PSR1;PSR2;Symfony;DoctrineAnnotation;PHP70Migration;PHP71Migration" tool_path="/home/anton/Public/TopMovies/vendor/bin/php-cs-fixer" timeout="30000" />
+      <phpcs_fixer_by_interpreter interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66" standards="PSR1;PSR2;Symfony;DoctrineAnnotation;PHP70Migration;PHP71Migration" tool_path="/home/anton/Public/TopMovies/vendor/bin/php-cs-fixer" timeout="30000" />
+      <PhpCSFixerConfiguration deletedFromTheList="true" standards="PSR1;PSR2;Symfony;DoctrineAnnotation;PHP70Migration;PHP71Migration" tool_path="$PROJECT_DIR$/vendor/bin/php-cs-fixer" />
+      <phpcs_fixer_by_interpreter asDefaultInterpreter="true" deletedFromTheList="true" interpreter_id="f38a02f4-ffd4-4320-937e-fa3c0d303341" standards="PSR1;PSR2;Symfony;DoctrineAnnotation;PHP70Migration;PHP71Migration" tool_path="/home/anton/Public/TopMovies/vendor/bin/php-cs-fixer" timeout="30000" />
     </phpcsfixer_settings>
   </component>
   <component name="PhpCodeSniffer">
     <phpcs_settings>
-      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66" timeout="30000" />
+      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="f38a02f4-ffd4-4320-937e-fa3c0d303341" timeout="30000" />
     </phpcs_settings>
   </component>
   <component name="PhpIncludePathManager">
@@ -191,72 +193,30 @@
       <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
       <path value="$PROJECT_DIR$/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/symplify/phpstan-rules" />
+      <path value="$PROJECT_DIR$/vendor/rector/rector" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter id="813be2c4-bce9-43f7-94c3-14d09012bf66" name="/usr/bin/php" home="/usr/bin/php" auto="true" debugger_id="php.debugger.XDebug" custom_ini="/etc/php/php.ini" />
+      <interpreter id="813be2c4-bce9-43f7-94c3-14d09012bf66" name="/usr/bin/php (project level)" home="/usr/bin/php" auto="true" debugger_id="php.debugger.XDebug" custom_ini="/etc/php/php.ini" />
     </interpreters>
-  </component>
-  <component name="PhpInterpretersPhpInfoCache">
-    <phpInfoCache>
-      <interpreter name="/usr/bin/php">
-        <phpinfo binary_type="PHP" php_cli="/usr/bin/php" path_separator=":" version="8.4.5">
-          <additional_php_ini>/etc/php/conf.d/99-xdebug.ini</additional_php_ini>
-          <configuration_file>/etc/php/php.ini</configuration_file>
-          <configuration_options>
-            <configuration_option name="include_path" value=".:" />
-          </configuration_options>
-          <debuggers>
-            <debugger_info debugger="xdebug" debugger_version="3.4.2">
-              <debug_extensions />
-            </debugger_info>
-          </debuggers>
-          <loaded_extensions>
-            <extension name="Core" />
-            <extension name="PDO" />
-            <extension name="Phar" />
-            <extension name="Reflection" />
-            <extension name="SPL" />
-            <extension name="SimpleXML" />
-            <extension name="ctype" />
-            <extension name="date" />
-            <extension name="dom" />
-            <extension name="fileinfo" />
-            <extension name="filter" />
-            <extension name="hash" />
-            <extension name="json" />
-            <extension name="libxml" />
-            <extension name="mbstring" />
-            <extension name="mysqlnd" />
-            <extension name="openssl" />
-            <extension name="pcntl" />
-            <extension name="pcre" />
-            <extension name="posix" />
-            <extension name="random" />
-            <extension name="readline" />
-            <extension name="session" />
-            <extension name="standard" />
-            <extension name="tokenizer" />
-            <extension name="xdebug" />
-            <extension name="xml" />
-            <extension name="xmlreader" />
-            <extension name="xmlwriter" />
-            <extension name="zlib" />
-          </loaded_extensions>
-        </phpinfo>
-      </interpreter>
-    </phpInfoCache>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
   <component name="PhpStan">
     <PhpStan_settings>
       <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
-      <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66" timeout="60000" />
+      <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
+      <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
+      <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="f38a02f4-ffd4-4320-937e-fa3c0d303341" timeout="60000" />
       <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
     </PhpStan_settings>
   </component>
   <component name="PhpStanOptionsConfiguration">
+    <option name="autoload" value="$PROJECT_DIR$/vendor/autoload.php" />
+    <option name="config" value="$PROJECT_DIR$/vendor/bin/phpstan" />
+    <option name="fullProject" value="true" />
     <option name="transferred" value="true" />
   </component>
   <component name="PhpUnit">
@@ -266,7 +226,7 @@
   </component>
   <component name="Psalm">
     <Psalm_settings>
-      <psalm_fixer_by_interpreter asDefaultInterpreter="true" interpreter_id="813be2c4-bce9-43f7-94c3-14d09012bf66" timeout="60000" />
+      <psalm_fixer_by_interpreter asDefaultInterpreter="true" interpreter_id="f38a02f4-ffd4-4320-937e-fa3c0d303341" timeout="60000" />
     </Psalm_settings>
   </component>
   <component name="PsalmOptionsConfiguration">

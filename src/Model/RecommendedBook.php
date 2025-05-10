@@ -4,7 +4,6 @@ namespace App\Model;
 
 class RecommendedBook
 {
-
     private int $id;
     private string $title;
     private string $slug;
@@ -19,6 +18,7 @@ class RecommendedBook
     public function setId(int $id): RecommendedBook
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -30,6 +30,7 @@ class RecommendedBook
     public function setTitle(string $title): RecommendedBook
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -41,6 +42,7 @@ class RecommendedBook
     public function setSlug(string $slug): RecommendedBook
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -52,6 +54,7 @@ class RecommendedBook
     public function setImage(string $image): RecommendedBook
     {
         $this->image = $image;
+
         return $this;
     }
 
@@ -63,6 +66,7 @@ class RecommendedBook
     public function setShortDescription(string $shortDescription): RecommendedBook
     {
         $this->shortDescription = $shortDescription;
+
         return $this;
     }
 }

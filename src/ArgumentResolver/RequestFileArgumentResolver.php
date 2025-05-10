@@ -18,7 +18,7 @@ class RequestFileArgumentResolver implements ValueResolverInterface
 
     public function resolve(Request $request, ArgumentMetadata $argument): iterable
     {
-        if (count($argument->getAttributes(MyRequestFile::class, ArgumentMetadata::IS_INSTANCEOF)) === 0) {
+        if (0 === count($argument->getAttributes(MyRequestFile::class, ArgumentMetadata::IS_INSTANCEOF))) {
             return [];
         }
 

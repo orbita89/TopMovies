@@ -19,16 +19,16 @@ class ApiExceptionListener
         private ExceptionMappingResolver $exceptionMappingResolver,
         private LoggerInterface $logger,
         private SerializerInterface $serializer,
-        private bool $isDebug
+        private bool $isDebug,
     ) {
     }
 
     public function __invoke(ExceptionEvent $event): void
     {
         $throwable = $event->getThrowable();
-//        if ($this->isSecondaryException($throwable)) {
-//            return;
-//        }
+        //        if ($this->isSecondaryException($throwable)) {
+        //            return;
+        //        }
         $mapping = $this->exceptionMappingResolver->resolve(get_class($throwable));
 
         if (null === $mapping) {

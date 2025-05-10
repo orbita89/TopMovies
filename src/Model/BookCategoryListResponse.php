@@ -6,24 +6,19 @@ namespace App\Model;
 
 class BookCategoryListResponse
 {
-
     /**
-     * @param  BookCategory[]  $items
+     * @param BookCategory[] $items
      */
     private array $items;
 
-
     /**
-     * @param  BookCategory[]  $items
+     * @param BookCategory[] $items
      */
     public function __construct(array $items)
     {
         $this->items = $items;
     }
 
-    /**
-     * @return array
-     */
     public function getItems(): array
     {
         return $this->items;

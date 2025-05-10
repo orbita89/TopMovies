@@ -8,11 +8,6 @@ class BookCategory
     private string $title;
     private string $slug;
 
-    /**
-     * @param  int  $id
-     * @param  string  $title
-     * @param  string  $slug
-     */
     public function __construct(int $id, string $title, string $slug)
     {
         $this->id = $id;

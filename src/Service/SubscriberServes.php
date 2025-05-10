@@ -12,7 +12,7 @@ class SubscriberServes
 {
     public function __construct(
         private SubscriberRepository $subscriberRepository,
-        private EntityManagerInterface $entityManager
+        private EntityManagerInterface $entityManager,
     ) {
     }
 

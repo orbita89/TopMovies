@@ -4,7 +4,6 @@ namespace App\Model;
 
 class ErrorResponse
 {
-
     public function __construct(private string $message, private mixed $details = null)
     {
     }

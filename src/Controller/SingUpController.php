@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Attribute\MyRequestBody;
 use App\Model\SignUpRequest;
 use App\Service\SingUpService;
+use OpenApi\Attributes as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use OpenApi\Attributes as OA;
-use App\Attribute\MyRequestBody;
 
 #[OA\Tag(name: 'Auth')]
 class SingUpController extends AbstractController

@@ -44,6 +44,7 @@ class Review
     public function setId(?int $id): Review
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -55,6 +56,7 @@ class Review
     public function setRating(?int $rating): Review
     {
         $this->rating = $rating;
+
         return $this;
     }
 
@@ -66,6 +68,7 @@ class Review
     public function setContent(string $content): Review
     {
         $this->content = $content;
+
         return $this;
     }
 
@@ -77,6 +80,7 @@ class Review
     public function setAuthor(string $author): Review
     {
         $this->author = $author;
+
         return $this;
     }
 
@@ -88,6 +92,7 @@ class Review
     public function setCreatedAt(\DateTimeImmutable $createdAt): Review
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 
@@ -99,6 +104,7 @@ class Review
     public function setBook(Book $book): Review
     {
         $this->book = $book;
+
         return $this;
     }
 }

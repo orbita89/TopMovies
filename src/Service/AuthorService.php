@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Entity\Book;
 use App\Exception\SlugAlreadyException;
-use App\Model\Author\CreateBookRequest;
 use App\Model\Author\BookListItem;
 use App\Model\Author\BookListResponse;
 use App\Model\Author\PublishBookRequest;
@@ -22,7 +21,7 @@ class AuthorService
         private BookRepository $bookRepository,
         private SluggerInterface $slugger,
         private Security $security,
-        private UploadService $uploadService
+        private UploadService $uploadService,
     ) {
     }
 
@@ -72,7 +71,6 @@ class AuthorService
         return $book;
     }
 
-
     public function deleteBook(int $id): void
     {
         $user = $this->security->getUser();
@@ -96,7 +94,7 @@ class AuthorService
             $this->uploadService->deleteFile($book->getId(), basename($book->getImage()));
         }
 
-        return (new UploadCoverResponse($link));
+        return new UploadCoverResponse($link);
     }
 
     public function deleteCover(int $id): void
@@ -104,13 +102,12 @@ class AuthorService
         $book = $this->bookRepository->getUserBookById($id, $this->security->getUser());
 
         $image = $book->getImage();
-        if ($image !== null) {
+        if (null !== $image) {
             $this->uploadService->deleteFile($book->getId(), basename($image));
             $book->setImage(null);
             $this->entityManager->flush();
         }
     }
-
 
     private function map(Book $book): BookListItem
     {
@@ -120,5 +117,4 @@ class AuthorService
             ->setImage($book->getImage())
             ->setId($book->getId());
     }
-
 }

@@ -17,6 +17,7 @@ class CreateBookRequest
     public function setTitle(string $title): CreateBookRequest
     {
         $this->title = $title;
+
         return $this;
     }
 }

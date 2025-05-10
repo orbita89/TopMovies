@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 abstract class AbstractRepositoryTest extends KernelTestCase
 {
-
     protected ?EntityManagerInterface $entityManager;
 
     protected function setUp(): void
@@ -16,7 +15,6 @@ abstract class AbstractRepositoryTest extends KernelTestCase
         parent::setUp();
 
         $this->entityManager = static::getContainer()->get(EntityManager::class);
-
     }
 
     protected function tearDown(): void

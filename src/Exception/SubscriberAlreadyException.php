@@ -2,8 +2,6 @@
 
 namespace App\Exception;
 
-use Symfony\Component\HttpFoundation\Response;
-
 class SubscriberAlreadyException extends \RuntimeException
 {
     public function __construct()
@@ -11,4 +9,3 @@ class SubscriberAlreadyException extends \RuntimeException
         parent::__construct('Subscriber email exists');
     }
 }
-

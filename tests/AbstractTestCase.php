@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
-
     protected function setEntityId(object $entity, int $value, string $idField = 'id'): void
     {
         $class = new \ReflectionClass($entity);

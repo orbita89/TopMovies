@@ -25,6 +25,4 @@ class RecommendationListResponse
     {
         return $this->recommendations;
     }
-
-
 }

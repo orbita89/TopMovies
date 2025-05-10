@@ -15,15 +15,16 @@ class BookListItem
     public function setId(int $id): BookListItem
     {
         $this->id = $id;
+
         return $this;
     }
 
     public function setSlug(string $slug): BookListItem
     {
         $this->slug = $slug;
+
         return $this;
     }
-
 
     public function getId(): int
     {
@@ -48,6 +49,7 @@ class BookListItem
     public function setTitle(string $title): BookListItem
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -59,6 +61,7 @@ class BookListItem
     public function setImage(?string $image): BookListItem
     {
         $this->image = $image;
+
         return $this;
     }
 
@@ -70,6 +73,7 @@ class BookListItem
     public function setAuthors(array $authors): BookListItem
     {
         $this->authors = $authors;
+
         return $this;
     }
 
@@ -81,6 +85,7 @@ class BookListItem
     public function setMeap(bool $meap): BookListItem
     {
         $this->meap = $meap;
+
         return $this;
     }
 
@@ -92,8 +97,7 @@ class BookListItem
     public function setPublicationDate(int $publicationDate): BookListItem
     {
         $this->publicationDate = $publicationDate;
+
         return $this;
     }
-
-
 }

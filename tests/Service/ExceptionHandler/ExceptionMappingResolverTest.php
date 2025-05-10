@@ -5,14 +5,12 @@ namespace App\Tests\Service\ExceptionHandler;
 use App\Service\ExceptionHandler\ExceptionMapping;
 use App\Service\ExceptionHandler\ExceptionMappingResolver;
 use App\Tests\AbstractTestCase;
-use InvalidArgumentException;
 
 class ExceptionMappingResolverTest extends AbstractTestCase
 {
-
     public function testConstructorThrowsExceptionWhenCodeIsMissing(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
 
         new ExceptionMappingResolver([
             'someClass' => ['hidden' => true],
@@ -38,18 +36,18 @@ class ExceptionMappingResolverTest extends AbstractTestCase
         $this->assertTrue($mapping->isLoggable());
     }
 
-//    public function testResolveUsesInheritance(): void
-//    {
-//        $resolver = new ExceptionMappingResolver([
-//            \RuntimeException::class => ['code' => 500],
-//        ]);
-//
-//        // LogicException наследует от RuntimeException
-//        $mapping = $resolver->resolve(\LogicException::class);
-//
-//        $this->assertInstanceOf(ExceptionMapping::class, $mapping);
-//        $this->assertSame(500, $mapping->getCode());
-//    }
+    //    public function testResolveUsesInheritance(): void
+    //    {
+    //        $resolver = new ExceptionMappingResolver([
+    //            \RuntimeException::class => ['code' => 500],
+    //        ]);
+    //
+    //        // LogicException наследует от RuntimeException
+    //        $mapping = $resolver->resolve(\LogicException::class);
+    //
+    //        $this->assertInstanceOf(ExceptionMapping::class, $mapping);
+    //        $this->assertSame(500, $mapping->getCode());
+    //    }
 
     public function testResolveReturnsNullIfNotFound(): void
     {

@@ -28,7 +28,7 @@ class UserController extends AbstractController
                     ],
                     type: 'object'
                 )
-            )
+            ),
         ]
     )]
     public function me(#[CurrentUser] UserInterface $user): Response

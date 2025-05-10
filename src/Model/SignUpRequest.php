@@ -32,6 +32,7 @@ class SignUpRequest
     public function setFirstName(string $firstName): SignUpRequest
     {
         $this->firstName = $firstName;
+
         return $this;
     }
 
@@ -43,6 +44,7 @@ class SignUpRequest
     public function setLastName(string $lastName): SignUpRequest
     {
         $this->lastName = $lastName;
+
         return $this;
     }
 
@@ -54,6 +56,7 @@ class SignUpRequest
     public function setEmail(string $email): SignUpRequest
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -65,6 +68,7 @@ class SignUpRequest
     public function setPassword(string $password): SignUpRequest
     {
         $this->password = $password;
+
         return $this;
     }
 
@@ -76,6 +80,7 @@ class SignUpRequest
     public function setConfirmPassword(string $confirmPassword): SignUpRequest
     {
         $this->confirmPassword = $confirmPassword;
+
         return $this;
     }
 }

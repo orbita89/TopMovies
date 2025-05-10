@@ -2,7 +2,6 @@
 
 namespace App\Model;
 
-
 class ReviewPage
 {
     /**
@@ -23,6 +22,7 @@ class ReviewPage
     public function setItems(array $items): ReviewPage
     {
         $this->items = $items;
+
         return $this;
     }
 
@@ -34,6 +34,7 @@ class ReviewPage
     public function setPerPage(int $perPage): ReviewPage
     {
         $this->perPage = $perPage;
+
         return $this;
     }
 
@@ -45,6 +46,7 @@ class ReviewPage
     public function setRating(float $rating): ReviewPage
     {
         $this->rating = $rating;
+
         return $this;
     }
 
@@ -56,6 +58,7 @@ class ReviewPage
     public function setPage(int $page): ReviewPage
     {
         $this->page = $page;
+
         return $this;
     }
 
@@ -67,6 +70,7 @@ class ReviewPage
     public function setPages(int $pages): ReviewPage
     {
         $this->pages = $pages;
+
         return $this;
     }
 
@@ -78,6 +82,7 @@ class ReviewPage
     public function setTotal(int $total): ReviewPage
     {
         $this->total = $total;
+
         return $this;
     }
 }

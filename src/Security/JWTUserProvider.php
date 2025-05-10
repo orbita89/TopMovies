@@ -10,9 +10,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class JWTUserProvider implements PayloadAwareUserProviderInterface
 {
-
     public function __construct(
-        private UserRepository $userRepository
+        private UserRepository $userRepository,
     ) {
     }
 
@@ -24,7 +23,7 @@ class JWTUserProvider implements PayloadAwareUserProviderInterface
     public function refreshUser(UserInterface $user): UserInterface
     {
         if (!$user instanceof User) {
-            throw new \InvalidArgumentException("Unsupported user class.");
+            throw new \InvalidArgumentException('Unsupported user class.');
         }
 
         return $this->userRepository->find($user->getId());

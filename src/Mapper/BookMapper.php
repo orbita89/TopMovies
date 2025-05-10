@@ -7,8 +7,6 @@ use App\Model\RecommendedBook;
 
 class BookMapper
 {
-
-
     public static function mapRecommendedBook(Book $book): RecommendedBook
     {
         $description = $book->getDescription();

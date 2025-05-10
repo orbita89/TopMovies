@@ -2,9 +2,7 @@
 
 namespace App\Attribute;
 
-use Attribute;
-
-#[Attribute(Attribute::TARGET_PARAMETER)]
+#[\Attribute(\Attribute::TARGET_PARAMETER)]
 class MyRequestBody
 {
 }

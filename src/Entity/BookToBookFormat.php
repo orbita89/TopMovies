@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity]
 class BookToBookFormat
 {
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -35,6 +34,7 @@ class BookToBookFormat
     public function setId(?int $id): BookToBookFormat
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -46,6 +46,7 @@ class BookToBookFormat
     public function setPrice(float $price): BookToBookFormat
     {
         $this->price = $price;
+
         return $this;
     }
 
@@ -57,6 +58,7 @@ class BookToBookFormat
     public function setDiscountPercent(?int $discountPercent): BookToBookFormat
     {
         $this->discountPercent = $discountPercent;
+
         return $this;
     }
 
@@ -68,6 +70,7 @@ class BookToBookFormat
     public function setBook(Book $book): BookToBookFormat
     {
         $this->book = $book;
+
         return $this;
     }
 
@@ -79,6 +82,7 @@ class BookToBookFormat
     public function setBookFormat(BookFormat $bookFormat): BookToBookFormat
     {
         $this->bookFormat = $bookFormat;
+
         return $this;
     }
 }

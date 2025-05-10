@@ -17,6 +17,7 @@ class BookListItem
     public function setId(int $id): BookListItem
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -28,6 +29,7 @@ class BookListItem
     public function setTitle(string $title): BookListItem
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -39,6 +41,7 @@ class BookListItem
     public function setSlug(string $slug): BookListItem
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -50,6 +53,7 @@ class BookListItem
     public function setImage(?string $image): BookListItem
     {
         $this->image = $image;
+
         return $this;
     }
 }

@@ -9,20 +9,16 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-use Throwable;
 
 class RecommendationService
 {
-
     public function __construct(
         private HttpClientInterface $recommendationClient,
-        private SerializerInterface $serializer
+        private SerializerInterface $serializer,
     ) {
     }
 
     /**
-     * @param  int  $bookId
-     * @return RecommendationListResponse
      * @throws RequestException
      */
     public function getRecommendations(int $bookId): RecommendationListResponse
@@ -37,7 +33,7 @@ class RecommendationService
                 type: RecommendationListResponse::class,
                 format: 'json'
             );
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             if ($e instanceof TransportExceptionInterface && Response::HTTP_FORBIDDEN === $e->getCode()) {
                 throw new AccessDeniedException($e);
             }

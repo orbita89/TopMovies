@@ -17,13 +17,12 @@ class SingUpService
         private UserRepository $userRepository,
         private EntityManagerInterface $entityManager,
         private UserPasswordHasherInterface $hasher,
-        private AuthenticationSuccessHandler $successHandler
+        private AuthenticationSuccessHandler $successHandler,
     ) {
     }
 
     public function singUp(SignUpRequest $signUpRequest): Response
     {
-
         $email = strtolower($signUpRequest->getEmail());
 
         if ($this->userRepository->existsByEmail($email)) {
@@ -47,7 +46,5 @@ class SingUpService
         $this->entityManager->flush();
 
         return $this->successHandler->handleAuthenticationSuccess($user);
-
     }
 }
-

@@ -9,12 +9,11 @@ use Symfony\Component\Uid\Uuid;
 
 class UploadService
 {
-
     private const LINK_BOOK_PATTERN = '/upload/books/%d/%s';
 
     public function __construct(
         private readonly Filesystem $filesystem,
-        private readonly string $uploadDir
+        private readonly string $uploadDir,
     ) {
     }
 

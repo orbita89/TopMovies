@@ -4,7 +4,6 @@ namespace App\Model;
 
 class IdResponse
 {
-
     public function __construct(private int $id)
     {
     }

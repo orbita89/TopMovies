@@ -12,14 +12,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-
 class SubscriberController extends AbstractController
 {
-
     public function __construct(private SubscriberServes $subscriberService)
     {
     }
-
 
     #[OA\Post(
         path: '/api/v1/subscriber',
@@ -39,7 +36,7 @@ class SubscriberController extends AbstractController
                         property: 'agreed',
                         type: 'bool',
                         example: true
-                    )
+                    ),
                 ]
             )
         ),
@@ -49,13 +46,14 @@ class SubscriberController extends AbstractController
                 response: 200,
                 description: 'Successful response',
                 content: new OA\JsonContent(type: 'string')
-            )
+            ),
         ]
     )]
     #[Route('/api/v1/subscriber', name: 'api_subscriber', methods: ['POST'])]
     public function action(#[MyRequestBody] SubscriberRequest $subscriberRequest): Response
     {
         $this->subscriberService->subscriber($subscriberRequest);
+
         return $this->json(null);
     }
 }

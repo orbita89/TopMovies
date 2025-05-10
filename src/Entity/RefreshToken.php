@@ -13,7 +13,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Table(name: 'refresh_tokens')]
 class RefreshToken extends BaseRefreshToken
 {
-
     #[ORM\JoinColumn(nullable: false)]
     #[ORM\ManyToOne(targetEntity: User::class)]
     private UserInterface $user;
@@ -21,22 +20,17 @@ class RefreshToken extends BaseRefreshToken
     #[ORM\Column(type: 'datetime')]
     private \DateTimeInterface $createdAt;
 
-
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
     {
         $this->createdAt = new \DateTimeImmutable();
     }
 
-    /**
-     * @param mixed $refreshToken
-     * @return RefreshTokenInterface
-     */
     public function setRefreshToken($refreshToken = null): RefreshTokenInterface
     {
         return parent::setRefreshToken($refreshToken);
     }
-    
+
     public function getUser(): UserInterface
     {
         return $this->user;
@@ -45,6 +39,7 @@ class RefreshToken extends BaseRefreshToken
     public function setUser(UserInterface $user): RefreshToken
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -56,13 +51,14 @@ class RefreshToken extends BaseRefreshToken
     public function setCreatedAt(\DateTimeInterface $createdAt): RefreshToken
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 
     public static function createForUserWithTtl(
         string $refreshToken,
         UserInterface $user,
-        int $ttl
+        int $ttl,
     ): RefreshTokenInterface {
         /** @var RefreshToken $entity */
         $entity = parent::createForUserWithTtl($refreshToken, $user, $ttl);

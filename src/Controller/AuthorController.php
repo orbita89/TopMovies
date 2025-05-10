@@ -15,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\NotNull;
 
@@ -35,7 +34,7 @@ class AuthorController extends AbstractController
         ),
         tags: ['Author'],
         responses: [
-            new OA\Response(response: 200, description: 'Опубликована книга')
+            new OA\Response(response: 200, description: 'Опубликована книга'),
         ]
     )]
     public function publish(
@@ -44,6 +43,7 @@ class AuthorController extends AbstractController
     ): Response {
         $as = $request->getDate();
         $this->authorService->publish($id, $request);
+
         return $this->json(null);
     }
 
@@ -57,12 +57,13 @@ class AuthorController extends AbstractController
         ),
         tags: ['Author'],
         responses: [
-            new OA\Response(response: 200, description: 'Не опубликована книга')
+            new OA\Response(response: 200, description: 'Не опубликована книга'),
         ]
     )]
     public function unPublish(int $id): Response
     {
         $this->authorService->unPublish($id);
+
         return $this->json(null);
     }
 
@@ -74,9 +75,9 @@ class AuthorController extends AbstractController
             new Image(maxSize: '1M', mimeTypes: [
                 'image/jpeg',
                 'image/png',
-                'image/jpg'
-            ])
-        ])] UploadedFile $file
+                'image/jpg',
+            ]),
+        ])] UploadedFile $file,
     ): Response {
         return $this->json($this->authorService->uploadCover($id, $file));
     }
@@ -87,15 +88,16 @@ class AuthorController extends AbstractController
         summary: 'Удалить обложку книги',
         tags: ['Author'],
         parameters: [
-            new OA\Parameter(name: 'id', in: 'path', required: true, schema: new OA\Schema(type: 'integer'))
+            new OA\Parameter(name: 'id', in: 'path', required: true, schema: new OA\Schema(type: 'integer')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Обложка удалена')
+            new OA\Response(response: 200, description: 'Обложка удалена'),
         ]
     )]
     public function deleteCover(int $id): Response
     {
         $this->authorService->deleteCover($id);
+
         return $this->json(null);
     }
 
@@ -120,12 +122,13 @@ class AuthorController extends AbstractController
         ),
         tags: ['Author'],
         responses: [
-            new OA\Response(response: 200, description: 'Книга создана')
+            new OA\Response(response: 200, description: 'Книга создана'),
         ]
     )]
     public function createBook(#[MyRequestBody] CreateBookRequest $request): Response
     {
         $this->authorService->createBook($request);
+
         return $this->json(null);
     }
 
@@ -135,15 +138,16 @@ class AuthorController extends AbstractController
         summary: 'Удалить книгу по ID',
         tags: ['Author'],
         parameters: [
-            new OA\Parameter(name: 'id', in: 'path', required: true, schema: new OA\Schema(type: 'integer'))
+            new OA\Parameter(name: 'id', in: 'path', required: true, schema: new OA\Schema(type: 'integer')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Книга удалена')
+            new OA\Response(response: 200, description: 'Книга удалена'),
         ]
     )]
     public function deleteBook(int $id): Response
     {
         $this->authorService->deleteBook($id);
+
         return $this->json(null);
     }
 }

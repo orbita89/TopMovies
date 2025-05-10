@@ -16,7 +16,6 @@ use Symfony\Component\Validator\ConstraintViolationList;
 
 class ValidationExceptionListenerTest extends AbstractTestCase
 {
-
     public function testDoesNothingIfNotValidationException(): void
     {
         $serializer = $this->createMock(SerializerInterface::class);
